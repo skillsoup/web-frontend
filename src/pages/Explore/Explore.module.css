@@ -1,0 +1,40 @@
+.layout {
+  padding: 50px 80px 100px;
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  gap: 35px;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: max-content;
+}
+
+.heading {
+  font-family: var(--page-heading-font-family);
+  font-weight: var(--page-heading-font-weight);
+  font-size: var(--page-heading-font-size);
+}
+
+.input {
+  width: 270px;
+  height: 20px;
+  border-radius: 50px;
+  padding: 20px 80px 20px 38px;
+  border: none;
+  background-color: var(--primary-light);
+  font-family: var(--page-subheading-font-family);
+  font-weight: var(--page-subheading-font-weight);
+  font-size: var(--page-subheading-font-size);
+}
+
+.searchIcon {
+  position: absolute;
+  right: 20px;
+  width: 35px;
+}
