@@ -1,6 +1,8 @@
 import React from "react";
 import { SkillType, TSkills } from "../../types/Skill";
-import SkillSelect from "./SkillSelect";
+import SkillItem from "./SkillItem";
+
+import styles from "./FormPage.module.css";
 
 interface FormPageProps {
   formState: TSkills;
@@ -10,9 +12,12 @@ interface FormPageProps {
 
 const FormPage = ({ formState, setFormState, skills }: FormPageProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       {skills.map((val, index) => (
-        <SkillSelect skillName={val} key={index} />
+        <>
+          {index % 7 === 4 ? <div className={styles.spacer} /> : null}
+          <SkillItem skillName={val} index={index} key={index} />
+        </>
       ))}
     </div>
   );

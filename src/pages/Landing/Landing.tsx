@@ -7,7 +7,7 @@ import styles from "./Landing.module.css";
 const Landing = () => {
   const navigate = useNavigate();
   const onClick = (e: React.MouseEvent) => {
-    navigate("/onboard");
+    navigate("/profile/add-skills");
   };
   return (
     <div className={styles.root}>

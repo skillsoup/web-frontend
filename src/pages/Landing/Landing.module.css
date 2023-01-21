@@ -50,7 +50,7 @@
 .button:hover {
   background-color: var(--primary-dark);
   cursor: pointer;
-  transition: background-color 0.05s ease;
+  transition: background-color 0.04s ease;
 }
 
 .graphic {

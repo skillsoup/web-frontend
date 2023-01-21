@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-import styles from "./SkillSelect.module.css";
+import styles from "./SkillItem.module.css";
 
-interface SkillSelectProps {
+interface SkillItemProps {
   skillName: string;
+  index: number;
 }
 
-const SkillSelect = ({ skillName }: SkillSelectProps) => {
+const SkillItem = ({ skillName, index }: SkillItemProps) => {
   const [selected, setSelected] = useState(false);
 
   const onClick = (e: React.MouseEvent) => {
@@ -14,12 +15,13 @@ const SkillSelect = ({ skillName }: SkillSelectProps) => {
   };
   return (
     <div
+      style={{ gridColumn: (index % 3) + 1 }}
       className={`${styles.container} ${selected ? styles.selected : null}`}
       onClick={onClick}
     >
-      {skillName}
+      <p className={styles.text}>{skillName}</p>
     </div>
   );
 };
 
-export default SkillSelect;
+export default SkillItem;
