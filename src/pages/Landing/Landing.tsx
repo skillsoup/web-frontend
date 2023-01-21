@@ -22,7 +22,6 @@ const Landing = () => {
         </button>
       </div>
       <img className={styles.graphic} src={landingGraphic} />
-      <footer className={styles.footer}>Footer</footer>
     </div>
   );
 };

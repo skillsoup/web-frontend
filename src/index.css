@@ -8,17 +8,17 @@
   --title-font-family: "Open Sans", sans-serif;
   --subtitle-font-family: "Open Sans", sans-serif;
   --button-font-family: "Open Sans", sans-serif;
-  --text-font-family: "Open Sans", sans-serif;
+  --nav-font-family: "Open Sans", sans-serif;
 
   --title-font-weight: 700;
-  --subtitle-font-weight: 700;
+  --subtitle-font-weight: 400;
   --button-font-weight: 600;
-  --text-font-weight: 400;
+  --nav-font-weight: 600;
 
   --title-font-size: 4.5rem;
-  --subtitle-font-size: 3rem;
+  --subtitle-font-size: 2.25rem;
   --button-font-size: 2rem;
-  --text-font-size: 2.25rem;
+  --nav-font-size: 1.25rem;
 
   /* colors */
   --grayscale-50: #ffffff;

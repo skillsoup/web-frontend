@@ -30,9 +30,9 @@
 }
 
 .subtitle {
-  font-family: var(--text-font-family);
-  font-weight: var(--text-font-weight);
-  font-size: var(--text-font-size);
+  font-family: var(--subtitle-font-family);
+  font-weight: var(--subtitle-font-weight);
+  font-size: var(--subtitle-font-size);
 }
 
 .button {
@@ -44,11 +44,13 @@
   background-color: rgba(0, 0, 0, 0);
   border: black solid 5px;
   border-radius: 15px;
+  transition: background-color 0.05s ease;
 }
 
 .button:hover {
   background-color: var(--primary-dark);
   cursor: pointer;
+  transition: background-color 0.05s ease;
 }
 
 .graphic {

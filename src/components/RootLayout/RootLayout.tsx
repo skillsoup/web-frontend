@@ -1,29 +1,32 @@
 import React from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
+import logoHorizontal from "../../assets/logo_horizontal.png";
 import styles from "./RootLayout.module.css";
 
 const RootLayout = () => {
   return (
     <div className={styles.layoutContainer}>
-      <header className={styles.headerContainer}>
-        <div
-          style={{ width: "150px", height: "50px", backgroundColor: "blue" }}
-        />
+      <div className={styles.sidebarContainer}>
+        <img className={styles.logo} src={logoHorizontal} />
         <nav className={styles.navContainer}>
-          <NavLink className={styles.navLink} to="/profile/skillset">
+          <NavLink className={styles.navLink} end to="/profile">
             Skillset
           </NavLink>
-          <NavLink className={styles.navLink} to="/profile/plan">
+          <NavLink className={styles.navLink} end to="/profile/add-skills">
+            Add Skills
+          </NavLink>
+          <NavLink className={styles.navLink} end to="/profile/plan">
             Plan
           </NavLink>
-          <NavLink className={styles.navLink} to="/profile/explore">
+          <NavLink className={styles.navLink} end to="/profile/explore">
             Explore
           </NavLink>
         </nav>
-      </header>
-      <Outlet />
-      {/* {children} */}
+      </div>
+      <section className={styles.mainContent}>
+        <Outlet />
+      </section>
     </div>
   );
 };

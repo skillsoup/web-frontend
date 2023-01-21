@@ -5,16 +5,16 @@ import Skillset from "./pages/Skillset/Skillset";
 import Plan from "./pages/Plan/Plan";
 import Explore from "./pages/Explore/Explore";
 import Landing from "./pages/Landing/Landing";
-import Onboard from "./pages/Onboard/Onboard";
+import AddSkills from "./pages/AddSkills/AddSkills";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="onboard" element={<Onboard />} />
         <Route path="/profile" element={<RootLayout />}>
-          <Route path="skillset" element={<Skillset />} />
+          <Route index element={<Skillset />} />
+          <Route path="add-skills" element={<AddSkills />} />
           <Route path="plan" element={<Plan />} />
           <Route path="explore" element={<Explore />} />
         </Route>

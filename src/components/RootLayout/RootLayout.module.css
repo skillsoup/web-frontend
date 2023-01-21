@@ -1,23 +1,51 @@
 .layoutContainer {
   width: 100vw;
   height: 100vh;
-}
-
-.headerContainer {
   display: grid;
-  grid-template-columns: max-content auto min-content;
+  grid-template-columns: 235px auto;
 }
 
+.sidebarContainer {
+  padding: 100px 0px;
+  display: grid;
+  grid-template-rows: max-content auto min-content;
+  gap: 90px;
+  background-color: white;
+}
+
+.logo {
+  width: 136px;
+  margin: auto;
+}
 .navContainer {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
 }
 
 .navLink {
-  font-size: 1.5rem;
+  width: 100%;
+
+  font-family: var(--nav-font-family);
+  font-weight: var(--nav-font-weight);
+  font-size: var(--nav-font-size);
+  padding: 18px 0px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  border-bottom: 2px solid black;
+  transition: background-color 0.06s ease;
+}
+
+.navLink:hover {
+  background-color: var(--primary-light);
+  transition: background-color 0.06s ease;
 }
 
 /* Current link */
 .navLink:global(.active) {
-  font-size: 2rem;
+  background-color: var(--primary-dark);
+}
+
+.mainContent {
+  background-color: #f8f8f8;
 }
