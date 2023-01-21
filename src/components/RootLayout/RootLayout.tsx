@@ -18,7 +18,7 @@ const RootLayout = () => {
             Plan
           </NavLink>
           <NavLink className={styles.navLink} to="/profile/explore">
-            Exploration
+            Explore
           </NavLink>
         </nav>
       </header>
