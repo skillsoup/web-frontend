@@ -2,9 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 60px;
-  border: 1px red solid;
 }
 
 .spacer {
-  width: 80px;
+  width: calc(((100vw - 235px - 160px) / 4 - 60px) / 2 - 30px);
 }
