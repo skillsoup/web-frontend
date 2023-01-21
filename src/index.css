@@ -1,18 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
 
 :root {
   font-size: 16px;
-  line-height: 24px;
   font-weight: 400;
 
   /* fonts */
   --title-font-family: "Open Sans", sans-serif;
   --subtitle-font-family: "Open Sans", sans-serif;
+  --button-font-family: "Open Sans", sans-serif;
   --text-font-family: "Open Sans", sans-serif;
+
+  --title-font-weight: 700;
+  --subtitle-font-weight: 700;
+  --button-font-weight: 600;
+  --text-font-weight: 400;
 
   --title-font-size: 4.5rem;
   --subtitle-font-size: 3rem;
-  --text-font-family: 2rem;
+  --button-font-size: 2rem;
+  --text-font-size: 2.25rem;
 
   /* colors */
   --grayscale-50: #ffffff;
@@ -36,4 +42,13 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }

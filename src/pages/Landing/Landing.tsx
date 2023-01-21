@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import Logo from "../../assets/logo.svg";
+import landingGraphic from "../../assets/landing_graphic.png";
 import styles from "./Landing.module.css";
 
 const Landing = () => {
@@ -10,11 +11,17 @@ const Landing = () => {
   };
   return (
     <div className={styles.root}>
+      <img className={styles.logo} src={Logo} alt="Logo" />
       <div className={styles.contentContainer}>
-        <h1>Skill Soup</h1>
-        <h2>Context</h2>
-        <button onClick={onClick}>Start</button>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>Skillsoup</h1>
+          <h2 className={styles.subtitle}>Your skillset organizer</h2>
+        </div>
+        <button className={styles.button} onClick={onClick}>
+          Start
+        </button>
       </div>
+      <img className={styles.graphic} src={landingGraphic} />
       <footer className={styles.footer}>Footer</footer>
     </div>
   );
