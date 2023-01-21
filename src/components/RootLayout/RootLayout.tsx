@@ -3,11 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 
 import styles from "./RootLayout.module.css";
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-const RootLayout = ({ children }: RootLayoutProps) => {
+const RootLayout = () => {
   return (
     <div className={styles.layoutContainer}>
       <header className={styles.headerContainer}>
@@ -15,21 +11,19 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           style={{ width: "150px", height: "50px", backgroundColor: "blue" }}
         />
         <nav className={styles.navContainer}>
-          <NavLink className={styles.navLink} to="/">
+          <NavLink className={styles.navLink} to="/profile/skillset">
             Skillset
           </NavLink>
-          <NavLink className={styles.navLink} to="/plan">
+          <NavLink className={styles.navLink} to="/profile/plan">
             Plan
           </NavLink>
-          <NavLink className={styles.navLink} to="/add">
-            Add
-          </NavLink>
-          <NavLink className={styles.navLink} to="/explore">
+          <NavLink className={styles.navLink} to="/profile/explore">
             Exploration
           </NavLink>
         </nav>
       </header>
-      {children}
+      <Outlet />
+      {/* {children} */}
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.container {
+  background-color: --grayscale-100;
+}
+
+.selected {
+  color: red;
+}
