@@ -1,83 +1,108 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import FormPage from "../../components/FormPage/FormPage";
-import { SkillType, TSkills } from "../../types/Skill";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import NoMatch from "../NoMatch/NoMatch";
 
+import Dog from "../../assets/doohickies/graphic_dog.png";
+import Rocket from "../../assets/doohickies/graphic_rocket.png";
+import Worm from "../../assets/doohickies/graphic_worm.png";
+import Circles from "../../assets/doohickies/graphic_circles.png";
 import styles from "./AddSkills.module.css";
 
-const pages: SkillType[] = ["organization", "personality"];
-const skills: TSkills = {
-  organization: [
-    "Goal setting",
-    "Decision making",
-    "Strategy thinking",
-    "Collaboration",
-    "Time management",
-    "Effective communication",
-    "Effective communication",
-    "Effective communication",
-    "Effective communication",
-    "Effective communication",
-    "Effective communication",
-  ],
-  personality: ["Amiable"],
+interface InputPageProps {
+  textInput: string;
+  setTextInput: React.Dispatch<React.SetStateAction<string>>;
+  onClick: (e: React.MouseEvent) => void;
+}
+const InputPage = ({ setTextInput, textInput, onClick }: InputPageProps) => (
+  <>
+    <div className={styles.headingContainer}>
+      <h1 className={styles.heading}>Tell us about yourself</h1>
+      <p className={styles.subheading}>
+        Our AI assistant will personalize your skillset list in 10 seconds
+      </p>
+    </div>
+    <textarea
+      className={styles.textInput}
+      value={textInput}
+      onChange={(e) => setTextInput(e.target.value)}
+      placeholder="What skills do you have?"
+    />
+    <button className={styles.button} onClick={onClick}>
+      Submit
+    </button>
+  </>
+);
+
+const LoadingPage = () => {
+  return (
+    <h1 className={styles.heading}>
+      Please give us a second to get your result...
+    </h1>
+  );
+};
+
+const SuccessPage = () => {
+  const navigate = useNavigate();
+  const onClick = () => {
+    navigate("/profile");
+  };
+  return (
+    <>
+      <h1 className={styles.heading}>
+        New skillsets were put in your profile!
+      </h1>
+
+      <button className={styles.button} onClick={onClick}>
+        View Profile
+      </button>
+      <img className={styles.imgDog} src={Dog} />
+    </>
+  );
 };
 
 const AddSkills = () => {
   const navigate = useNavigate();
+  const [textInput, setTextInput] = useState("");
 
-  const [formPage, setFormPage] = useState(0);
-  const [formState, setFormState] = useState<TSkills>({
-    organization: [],
-    personality: [],
-  });
+  const onClick = async (e: React.MouseEvent) => {
+    navigate("loading");
 
-  const onNextClick = (e: React.MouseEvent) => {
-    setFormPage((val) => val + 1);
+    let res: Response;
+    try {
+      res = await fetch("https://skillsoup.onrender.com/", {
+        method: "POST",
+        body: textInput,
+      });
+      if (!res.ok) {
+        return navigate("error", { replace: true });
+      }
+    } catch (error) {
+      console.error(error);
+      return navigate("error", { replace: true });
+    }
+
+    const data = await res.json();
+    localStorage.setItem("skillData", JSON.stringify(data));
+    navigate("success", { replace: true });
   };
-  const onPreviousClick = (e: React.MouseEvent) => {
-    setFormPage((val) => val - 1);
-  };
-  const onSubmitClick = (e: React.MouseEvent) => {
-    navigate("/profile");
-  };
-  console.log(formPage);
   return (
     <div className={styles.layout}>
-      <h1 className={styles.heading}>Add Skills</h1>
-      <FormPage
-        formState={formState}
-        setFormState={setFormState}
-        skills={skills[pages[formPage]]}
-      />
-      <div className={styles.buttonContainer}>
-        {formPage !== 0 ? (
-          <button
-            className={`${styles.button} ${styles.left}`}
-            onClick={onPreviousClick}
-          >
-            <FaChevronLeft />
-            Previous
-          </button>
-        ) : null}
-        {formPage < pages.length - 1 ? (
-          <button
-            className={`${styles.button} ${styles.right}`}
-            onClick={onNextClick}
-          >
-            Next
-            <FaChevronRight />
-          </button>
-        ) : (
-          <button
-            className={`${styles.button} ${styles.right}`}
-            onClick={onSubmitClick}
-          >
-            Submit
-          </button>
-        )}
-      </div>
+      <Routes>
+        <Route
+          index
+          element={
+            <InputPage
+              onClick={onClick}
+              setTextInput={setTextInput}
+              textInput={textInput}
+            />
+          }
+        />
+        <Route path="loading" element={<LoadingPage />} />
+        <Route path="success" element={<SuccessPage />} />
+        <Route path="error" element={<div>an error occured</div>} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
     </div>
   );
 };

@@ -1,31 +1,48 @@
 .layout {
   padding: 50px 80px 100px;
-  display: grid;
-  grid-template-rows: max-content auto max-content;
+  display: flex;
+  flex-direction: column;
   gap: 35px;
+  align-items: center;
+  justify-content: center;
   height: calc(100% - 150px);
+}
+
+.headingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
 }
 
 .heading {
   font-family: var(--page-heading-font-family);
   font-weight: var(--page-heading-font-weight);
   font-size: var(--page-heading-font-size);
+  margin: 0;
 }
 
-.buttonContainer {
-  display: grid;
-  width: 100%;
-  grid-template-columns: max-content auto max-content;
+.subheading {
+  font-family: var(--subtitle-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: var(--text-font-size);
+  margin: 0;
 }
 
-.button.right {
-  grid-column: 3;
+.textInput {
+  min-width: 600px;
+  width: 90%;
+  height: 1000px;
+  border-radius: 30px;
+  padding: 20px;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: rgba(250, 226, 141, 0.3);
+  font-family: var(--text-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: var(--text-font-size);
 }
-
-.button.left {
-  grid-column: 1;
-}
-
 .button {
   /* position: absolute;
   bottom: 90px;
@@ -33,6 +50,8 @@
   font-family: var(--text-font-family);
   font-weight: var(--text-font-weight);
   font-size: var(--text-font-size);
+  height: max-content;
+  width: max-content;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -49,4 +68,16 @@
   color: white;
   cursor: pointer;
   transition: background-color 0.05s ease;
+}
+
+.fetchLayout {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.imgDog {
+  position: relative;
+  top: 60px;
+  width: 250px;
 }
