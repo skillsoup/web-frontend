@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import SkillCheckbox from "../../components/SkillCheckbox/SkillCheckbox";
@@ -23,7 +24,9 @@ const ExploreResult = ({ data }: ExploreResultProps) => {
         <hr className={styles.divider} />
         <ul className={styles.listLayout}>
           {data.skills.map((skill, index) => (
-            <li className={styles.listItem}>{skill}</li>
+            <li className={styles.listItem} key={index}>
+              {_.capitalize(skill)}
+            </li>
           ))}
         </ul>
       </section>
