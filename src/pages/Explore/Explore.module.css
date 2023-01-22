@@ -38,3 +38,22 @@
   right: 20px;
   width: 35px;
 }
+
+.statusMessageContainer {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statusMessage {
+  font-family: var(--page-subheading-font-family);
+  font-weight: var(--page-subheading-font-weight);
+  font-size: var(--page-subheading-font-size);
+}
+
+.text {
+  font-family: var(--text-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: var(--text-font-size);
+}

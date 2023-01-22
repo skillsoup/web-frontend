@@ -122,7 +122,7 @@ const AddSkills = () => {
 
     let res: Response;
     try {
-      res = await fetch("http://localhost:3000/user/calculate_score", {
+      res = await fetch("https://skillsoup.onrender.com/user/calculate_score", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formState),

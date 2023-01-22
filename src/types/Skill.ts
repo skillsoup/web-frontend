@@ -4,3 +4,9 @@ export type SkillCategory =
   | "teamwork"
   | "organization"
   | "technical";
+
+export type ExploreResponse = {
+  job_position: string;
+  skills: string[];
+  advice: string;
+};
