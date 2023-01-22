@@ -23,11 +23,15 @@ const ExploreResult = ({ data }: ExploreResultProps) => {
         <h2 className={styles.heading}>You could work on these skills!</h2>
         <hr className={styles.divider} />
         <ul className={styles.listLayout}>
-          {data.skills.map((skill, index) => (
-            <li className={styles.listItem} key={index}>
-              {_.capitalize(skill)}
-            </li>
-          ))}
+          {data.skills
+            .trim()
+            .substring(1, data.skills.length - 2)
+            .split(",")
+            .map((skill, index) => (
+              <li className={styles.listItem} key={index}>
+                {_.capitalize(skill)}
+              </li>
+            ))}
         </ul>
       </section>
     </>

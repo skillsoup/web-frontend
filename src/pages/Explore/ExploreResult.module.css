@@ -35,11 +35,12 @@
 
 .listLayout {
   display: flex;
-  gap: 20px 40%;
+  gap: 20px 80px;
   flex-wrap: wrap;
 }
 
 .listItem {
+  width: 40%;
   font-family: var(--text-font-family);
   font-weight: var(--text-font-weight);
   font-size: var(--text-font-size);

@@ -7,6 +7,6 @@ export type SkillCategory =
 
 export type ExploreResponse = {
   job_position: string;
-  skills: string[];
+  skills: string;
   advice: string;
 };

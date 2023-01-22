@@ -44,15 +44,17 @@ const Explore = () => {
         body: JSON.stringify({ job_position: searchValue, skills: skillData }),
       });
       if (!res.ok) {
-        return setError(true);
+        setError(true);
+        setLoading(false);
+        return;
       }
       const data: ExploreResponse = await res.json();
+      console.log(data);
       setData(data);
     } catch (err) {
       console.error(err);
       return setError(true);
     }
-    setData(data);
     setLoading(false);
   };
   useEffect(() => {
@@ -71,13 +73,10 @@ const Explore = () => {
         />
         <FaSearch className={styles.searchIcon} />
       </form>
-      {error ? (
-        <ErrorMessage />
-      ) : loading ? (
-        <LoadingMessage />
-      ) : data ? (
-        <ExploreResult data={data} />
-      ) : null}
+
+      {error ? <ErrorMessage /> : null}
+      {loading ? <LoadingMessage /> : null}
+      {data ? <ExploreResult data={data} /> : <div>sdfdsf</div>}
     </div>
   );
 };
