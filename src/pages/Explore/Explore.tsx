@@ -76,7 +76,7 @@ const Explore = () => {
 
       {error ? <ErrorMessage /> : null}
       {loading ? <LoadingMessage /> : null}
-      {data ? <ExploreResult data={data} /> : <div>sdfdsf</div>}
+      {data ? <ExploreResult data={data} /> : null}
     </div>
   );
 };
