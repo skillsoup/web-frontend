@@ -16,9 +16,6 @@ const RootLayout = () => {
           <NavLink className={styles.navLink} end to="/profile/add-skills">
             Add Skills
           </NavLink>
-          <NavLink className={styles.navLink} end to="/profile/plan">
-            Plan
-          </NavLink>
           <NavLink className={styles.navLink} end to="/profile/explore">
             Explore
           </NavLink>

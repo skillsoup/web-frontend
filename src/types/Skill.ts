@@ -1,16 +1,12 @@
-export type SkillType = "organization" | "personality";
+export type SkillCategory =
+  | "communication"
+  | "resilience"
+  | "teamwork"
+  | "organization"
+  | "technical";
 
-export type OrganizationSkills =
-  | "Goal setting"
-  | "Decision making"
-  | "Strategy thinking"
-  | "Collaboration"
-  | "Time management"
-  | "Effective communication";
-
-export type PersonalitySkills = "Amiable";
-
-export type TSkills = {
-  organization: OrganizationSkills[];
-  personality: PersonalitySkills[];
+export type ExploreResponse = {
+  job_position: string;
+  skills: string[];
+  advice: string;
 };

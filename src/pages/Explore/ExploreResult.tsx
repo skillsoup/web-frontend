@@ -1,34 +1,33 @@
 import React from "react";
+import { FaPlus } from "react-icons/fa";
 import SkillCheckbox from "../../components/SkillCheckbox/SkillCheckbox";
+import { ExploreResponse } from "../../types/Skill";
 
 import styles from "./ExploreResult.module.css";
 
-const ExploreResult = () => {
+interface ExploreResultProps {
+  data: ExploreResponse;
+}
+
+const ExploreResult = ({ data }: ExploreResultProps) => {
   return (
-    <section className={styles.layout}>
-      <div className={styles.skillSection}>
-        <h2 className={styles.heading}>You've got these skills!</h2>
-        <div className={styles.skillsContainer}>
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-        </div>
-      </div>
-      <div className={styles.skillSection}>
+    <>
+      <h1 className={styles.title}>{data.job_position}</h1>
+      <section className={styles.skillSection}>
+        <h2 className={styles.heading}>Our recommendation for you:</h2>
+        <hr className={styles.divider} />
+        <p className={styles.text}>{data.advice}</p>
+      </section>
+      <section className={styles.skillSection}>
         <h2 className={styles.heading}>You could work on these skills!</h2>
-        <div className={styles.skillsContainer}>
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-          <SkillCheckbox />
-        </div>
-      </div>
-    </section>
+        <hr className={styles.divider} />
+        <ul className={styles.listLayout}>
+          {data.skills.map((skill, index) => (
+            <li className={styles.listItem}>{skill}</li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 };
 

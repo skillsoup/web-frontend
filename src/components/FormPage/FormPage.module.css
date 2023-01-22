@@ -1,9 +1,0 @@
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
-}
-
-.spacer {
-  width: calc(((100vw - 235px - 160px) / 4 - 60px) / 2 - 30px);
-}
