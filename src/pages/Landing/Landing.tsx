@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "public/logo.svg";
+import Logo from "../../assets/logo.svg";
 import landingGraphic from "../../assets/doohickies/landing_graphic.png";
 import styles from "./Landing.module.css";
 
